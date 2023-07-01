@@ -7,8 +7,9 @@ function App() {
   const [time, setTime] = useState(null);
 
   useEffect(() => {
+    const VITE_APP_API_URL = import.meta.env.VITE_APP_API_URL || "";
     // Establish a WebSocket connection
-    const socket = new WebSocket('ws://localhost:5000');
+    const socket = new WebSocket(VITE_APP_API_URL);
 
     // Handle WebSocket events
     socket.onopen = () => {
